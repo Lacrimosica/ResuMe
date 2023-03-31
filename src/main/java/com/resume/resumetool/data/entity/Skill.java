@@ -1,5 +1,6 @@
 package com.resume.resumetool.data.entity;
 
+import com.resume.resumetool.common.constants.StringConstants;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -14,10 +15,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "skill_table" ,  schema = "resume")
-public class SkillEntity {
+public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = StringConstants.SKILL_COLUMN_ID_NAME, nullable = false)
     @JdbcTypeCode(SqlTypes.BIGINT)
     private Long id;
 
@@ -25,7 +26,7 @@ public class SkillEntity {
     @JoinTable(name = "resume_skill_rel",
             joinColumns = @JoinColumn(name = "skill_id"),
             inverseJoinColumns = @JoinColumn(name = "resume_id"))
-    private List<ResumeEntity> resumes;
+    private List<Resume> resumes;
 
     @Column(name = "skill_name" , nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)

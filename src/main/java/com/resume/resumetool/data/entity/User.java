@@ -1,5 +1,6 @@
 package com.resume.resumetool.data.entity;
 
+import com.resume.resumetool.common.constants.StringConstants;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -15,10 +16,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "user_table" , schema = "resume")
-public class UserEntity {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = StringConstants.USER_COLUMN_ID_NAME, nullable = false)
     @JdbcTypeCode(SqlTypes.BIGINT)
     private Long id;
 
@@ -45,10 +46,15 @@ public class UserEntity {
 
     @Column(name = "email", nullable = false)
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    @Size(min = 3, max = 20)
+    @Size(min = 3, max = 50)
     private String email;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<ResumeEntity> resumes;
+    private List<Resume> resumes;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Role> roles;
+    @Column(name = "enabled", nullable = false)
+    private Boolean enabled;
 
 }
