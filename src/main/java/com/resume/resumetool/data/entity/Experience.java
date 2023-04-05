@@ -1,10 +1,8 @@
 package com.resume.resumetool.data.entity;
 
 import com.resume.resumetool.common.constants.StringConstants;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 
 import java.util.List;
 
@@ -19,7 +17,7 @@ public class Experience {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = StringConstants.EXPERIENCE_COLUMN_ID_NAME, nullable = false)
-    @JdbcTypeCode(SqlTypes.BIGINT)
+//    @JdbcTypeCode(SqlTypes.BIGINT)
     private Long id;
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -29,28 +27,28 @@ public class Experience {
     private List<Resume> resumes;
 
     @Column(name = "company_name" , nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+//    @JdbcTypeCode(SqlTypes.VARCHAR)
     private String companyName;
 
     @Column(name = "job_title" , nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+//    @JdbcTypeCode(SqlTypes.VARCHAR)
     private String jobTitle;
 
     @Column(name = "start_date" , nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+//    @JdbcTypeCode(SqlTypes.VARCHAR)
     private String startDate;
 
     @Column(name = "end_date" , nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+//    @JdbcTypeCode(SqlTypes.VARCHAR)
     private String endDate;
 
     @Column(name = "location" , nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+//    @JdbcTypeCode(SqlTypes.VARCHAR)
     private String location;
 
 
     @Column(name = "description" , nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+//    @JdbcTypeCode(SqlTypes.VARCHAR)
     private String description;
 
 

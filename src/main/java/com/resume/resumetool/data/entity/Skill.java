@@ -1,11 +1,9 @@
 package com.resume.resumetool.data.entity;
 
 import com.resume.resumetool.common.constants.StringConstants;
-import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Getter
@@ -19,7 +17,7 @@ public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = StringConstants.SKILL_COLUMN_ID_NAME, nullable = false)
-    @JdbcTypeCode(SqlTypes.BIGINT)
+//    @JdbcTypeCode(SqlTypes.BIGINT)
     private Long id;
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -29,11 +27,11 @@ public class Skill {
     private List<Resume> resumes;
 
     @Column(name = "skill_name" , nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+//    @JdbcTypeCode(SqlTypes.VARCHAR)
     private String skillName;
 
     @Column(name = "skill_level" , nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+//    @JdbcTypeCode(SqlTypes.VARCHAR)
     private String skillLevel;
 
 

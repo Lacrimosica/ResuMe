@@ -1,10 +1,8 @@
 package com.resume.resumetool.data.entity;
 
 import com.resume.resumetool.common.constants.StringConstants;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 
 import java.util.List;
 
@@ -19,19 +17,19 @@ public class Resume {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = StringConstants.RESUME_COLUMN_ID_NAME, nullable = false)
-    @JdbcTypeCode(SqlTypes.BIGINT)
+//    @JdbcTypeCode(SqlTypes.BIGINT)
     private Long id;
 
     @Column(name = "title" , nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+//    @JdbcTypeCode(SqlTypes.VARCHAR)
     private String title;
 
     @Column(name = "summary" , nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+//    @JdbcTypeCode(SqlTypes.VARCHAR)
     private String summary;
 
     @Column(name = "objective" , nullable = false)
-    @JdbcTypeCode(SqlTypes.VARCHAR)
+//    @JdbcTypeCode(SqlTypes.VARCHAR)
     private String objective;
 
     @ManyToOne(fetch = FetchType.LAZY)
